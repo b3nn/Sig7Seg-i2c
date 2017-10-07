@@ -8,7 +8,7 @@ This library allows you to easily set numbers or segments on displays connected 
 
 ## Install
 
-For Arudino, click the DOWNLOADS button in the top right corner in GitHub, rename the uncompressed folder *sig7seg-i2c*. Place the *sig7seg-i2c* library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the *libraries* subfolder if its your first library. Restart the IDE. This library also requires the [Adafruit MCP23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library)
+For Arduino, click the DOWNLOADS button in the top right corner in GitHub, rename the uncompressed folder *sig7seg-i2c*. Place the *sig7seg-i2c* library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the *libraries* subfolder if its your first library. Restart the IDE. This library also requires the [Adafruit MCP23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library)
 
 For Particle boards, this library can be installed via the Library Manager in the Web IDE or via the command line.
 ```
@@ -51,12 +51,18 @@ See the [examples](examples) folder for more details.
 
 ## Documentation
 
-This code is designed to work with the sig7seg-i2c open source hardware board for the Signalex 7 Segement displays. The board is based on the MCP23017 and requires the awesome [Adafruit MCP23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library). 
+This code is designed to work with the sig7seg-i2c open source hardware board for electromechanical seven segment displays like Signalex "02L" series flip displays. The board is based on the MCP23017 and requires the awesome [Adafruit MCP23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library). 
 
-The sig7seg-i2c library support the methods of other common 7 segment displays. Mainly *begin()* to start the communciation bus, *write(int)* to display a number, and *clear()* to hide all segments of the display. The sig7seg-i2c library also includes **setDash()**, **setSegments(uint8_t)** and **setFlipTime(uint8_t)**
+The sig7seg-i2c library support the methods of other common 7 segment displays. Mainly *begin()* to start the communication bus, *write(int)* to display a number, and *clear()* to hide all segments of the display. The sig7seg-i2c library also includes **setDash()**, **setSegments(uint8_t)** and **setFlipTime(uint8_t)**
 
-### setDash
-This will flip the middle 7 segment bar of the display to on. Use **clear()** to flip the segment back off.
+### write(int number)
+Sets the 7 segment display to the number value passed in. Supports hex values, allowing for 0-16 decimal.
+
+### clear()
+Sets all segments of the display to be hidden. 
+
+### setDash()
+This will flip the middle 7 segment bar of the display be shown, hiding all other segments. Use **clear()** to flip the segment back off.
 
 ### setFlipTime(uint8_t millis)
 This will set the length of control pulse time for each segment. The default is 90ms which should support the 4" to 12" displays. However, the 4" can run even faster at 50ms.  
