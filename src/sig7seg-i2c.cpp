@@ -29,7 +29,7 @@ static const uint8_t numbertable[] = {
 
 void Sig7segi2c::begin(uint8_t addr) {
   // MCP code has check to limit the address range
-  _mcp.begin(addr);
+  _mcp.begin_I2C(addr);
 
   // Sets all the MCP pins to output
   for(int i=0; i<15; i++){
