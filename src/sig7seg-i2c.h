@@ -2,14 +2,14 @@
 
 /* sig7seg-i2c library by b3nn */
 
-// This will load the definition for common Particle variable types
-#include "Particle.h"
+// Uncomment the next line if using with a Particle board
+// #include "Particle.h"
 
 #if defined (PARTICLE)
-#include "Adafruit_MCP23017.h"
+#include <Adafruit_MCP23X17.h>
 #else
 #include <Wire.h>
-#include "Adafruit_MCP23017.h"
+#include <Adafruit_MCP23X17.h>
 #endif
 
 // This is your main class that users will import into their application
@@ -26,6 +26,6 @@ public:
 
 private:
   uint8_t _fliptime;
-  Adafruit_MCP23017 _mcp;
+  Adafruit_MCP23X17 _mcp;
 
 };
